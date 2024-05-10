@@ -18,7 +18,7 @@
 <body>
 
 <h1>MVC 버전 댄서등록 폼</h1>
-<form action="/chap03/dancer/process.jsp" method="get" id="reg-form">
+<form action="/WEB-INF/chap04/register.jsp" method="get" id="reg-form">
     <label>
         # 이름 : <input type="text" name="name">
     </label>
