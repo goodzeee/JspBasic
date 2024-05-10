@@ -1,6 +1,7 @@
 package com.jsp.chap04;
 
 import com.jsp.entity.Dancer;
+import com.jsp.repository.DancerJdbcRepo;
 import com.jsp.repository.DancerMemoryRepo;
 
 import javax.servlet.RequestDispatcher;
@@ -19,7 +20,8 @@ import java.util.List;
 @WebServlet("/chap04/new-dancer")   // register.jsp 경로 가져오기
 public class AddNewDancerServlet extends HttpServlet {
 
-    private DancerMemoryRepo repo = DancerMemoryRepo.getInstance();
+    //private DancerMemoryRepo repo = DancerMemoryRepo.getInstance();
+    private DancerJdbcRepo repo = DancerJdbcRepo.getInstance();
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse reps) throws IOException, ServletException {
