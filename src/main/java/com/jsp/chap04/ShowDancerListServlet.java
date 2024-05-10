@@ -1,6 +1,7 @@
 package com.jsp.chap04;
 
 import com.jsp.entity.Dancer;
+import com.jsp.repository.DancerJdbcRepo;
 import com.jsp.repository.DancerMemoryRepo;
 
 import javax.servlet.RequestDispatcher;
@@ -18,7 +19,7 @@ import java.util.List;
 public class ShowDancerListServlet extends HttpServlet {
 
     // 해당 클래스에서 데이터베이스에서 댄서 리스트 가져오는 처리 해주니 가져와서 사용
-    private DancerMemoryRepo repo = DancerMemoryRepo.getInstance();
+    private DancerJdbcRepo repo = DancerJdbcRepo.getInstance();
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse reps) throws IOException, ServletException {
