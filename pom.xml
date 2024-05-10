@@ -17,6 +17,7 @@
         <tomcat.version>9.0.39</tomcat.version>
     </properties>
 
+    <!-- 라이브러리 관리 -->
     <dependencies>
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
@@ -50,6 +51,21 @@
             <artifactId>javax.servlet-api</artifactId>
             <version>3.1.0</version>
         </dependency>
+
+        <!-- jstl 라이브러리 추가 -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency>
+
+        <!-- Database 관련 라이브러리 / db별 커넥터 우린 mariadb -->
+        <dependency>
+            <groupId>org.mariadb.jdbc</groupId>
+            <artifactId>mariadb-java-client</artifactId>
+            <version>3.3.3</version>
+        </dependency>
+
     </dependencies>
 
     <build>
