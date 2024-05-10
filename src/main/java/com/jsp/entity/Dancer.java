@@ -46,6 +46,7 @@ public class Dancer {
         }
     }
 
+    // 여러 java beans 데이터 운송 수단
     private String name; // 댄서 이름
 
     private String crewName; // 댄서 팀 이름
