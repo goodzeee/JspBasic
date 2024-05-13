@@ -85,15 +85,16 @@ public class DancerJdbcRepo {
             ResultSet rs = pstmt.executeQuery();// 자료구조로 반환
 
             // ResultSet 데이터 가져오기
-            List<Dancer> people = new ArrayList<>();
+            List<Dancer> dancerList = new ArrayList<>();
             while (rs.next()) {   // next() -> boolean 리턴 따라서 true 인 동안 반복 실행
                 // 커서가 가리키는 행의 데이터를 하나씩 추출
-                int id = rs.getInt("id");
+                int id = rs.getInt("id"); // 데이터 삭제를 위한 추가
                 String name = rs.getString("name");
                 String crewName = rs.getString("crew_name");
                 String danceLevel = rs.getString("dance_level");
 
                 Dancer dancer = new Dancer();
+                dancer.setId(id);
                 dancer.setName(name);
                 dancer.setCrewName(crewName);
                 dancer.setDanceLevel(Dancer.DanceLevel.valueOf(danceLevel));
@@ -111,5 +112,22 @@ public class DancerJdbcRepo {
             return null;
         }
     }
+
+    public void delete(String id) {
+        // 데베 연결하기 (Connection ~~)
+        try (Connection conn = DriverManager.getConnection(url, username, password)) {
+
+            Class.forName(driverClassName);
+
+            String sql = "DELETE FROM tbl_dancer WHERE id = ?";
+
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, id);
+            pstmt.executeUpdate();
+
+        } catch (Exception e) {
+
+        }
     }
+}
 
